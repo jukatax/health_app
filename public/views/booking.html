@@ -1,0 +1,90 @@
+<div class="row">
+        <div class="h1">
+                <h1>
+                        Book a consultation
+                </h1>
+        </div>
+</div>
+
+<div class="row" manage-clicks>
+        <div class="col-xs-12 bg-white booking tetx-center user">
+                <h3 class="subtitle text-center">Book the appointment for</h3>
+                <p class="text-center">
+                        <img class="thumbnail center" width="150" data-ng-src="{{user.picture}}" />
+                        <span class="name">{{user.name}}</span>
+                </p>
+        </div>
+        <!--================= GP select ==============-->
+        <div class="col-xs-12 bg-white booking">
+                <h3 class="subtitle text-center">Select healthcare body</h3>
+                <ul class="list-unstyled  list-inline  text-center">
+                        <li  class="list" data-ng-repeat="gp in gps | orderBy : ['firstAvailableDate' ,'firstAvailableTime']">
+
+                                <span class="btn btn-default selectable gp padding-lg" data-ind="{{$index}}" data-ng-click="setGP(gp.name);clearBookingData()">
+                                        <span class="name"><i class="fa fa-stethoscope"></i> {{gp.name}}</span><br />
+                                        <span class="badge distance">{{gp.distance}}</span><br />
+                                        <span class="badge availableDate">{{gp.firstAvailableDate}}</span>
+                                </span>
+                        </li>
+                </ul>
+        </div>
+        <!--================= doctor ==============-->
+        <div class="col-xs-12 bg-white booking" data-ng-show="booking.doctor">
+                <h3 class="subtitle text-center">Selected Doctor</h3>
+                <ul class="  list-inline  text-center">
+                        <li class="selectedDoctor text-center padding-lg btn btn-default"  data-ng-click="doctorsVisible=true">
+                                <i class="fa fa-user-md fa-5x"></i><br />
+                                <span class="selectable doctor">{{booking.doctor}}</span>
+                        </li>
+                </ul>
+        </div>
+        <!--================= date/time ==============-->
+        <div class="col-xs-12 bg-white booking" data-ng-show="booking.date">
+                <h3 class="subtitle text-center">Selected appointment</h3>
+                <ul class="  list-inline  text-center">
+                        <li class="selectedDateTime text-center padding-lg btn btn-default"  data-ng-click="timesVisible=true">
+                                <span class="date">{{booking.date}}</span><br />
+                                <span class="time">{{booking.time}}</span>
+                        </li>
+                </ul>
+        </div>
+        <!--================= CTA button ==============-->
+        <div class="col-xs-12 bg-white padding text-center">
+                <button class="btn btn-primary btn-lg btn_mainTheme" data-ng-disabled="disableBooking" data-ng-click="bookAppointment()">Book consultation</button>
+                <p class="bg-danger">#### Dev ##### Data to be send to server<br /> {{booking}}</p>
+        </div>
+</div>
+<!--====================================-->
+<!--=================popup==============-->
+<!--====================================-->
+<div class="overlay popup" data-ng-show="doctorsVisible||timesVisible">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 doctor__popup popup clearfix" data-ng-show="doctorsVisible">
+                <div class="bg-primary text-center padding margin">Select Doctor</div>
+                <div class="">
+                        <ul class="list-unstyled">
+                                <li  class="list doctor padding" data-ng-repeat="doctor in doctors | orderBy : 'firstAvailable'" data-ng-click="setDoctor(doctor.name);">
+                                        <span class=" padding" data-ind="{{$index}}" >{{doctor.name}}</span>
+
+                                </li>
+                        </ul>
+                </div>
+                <div class="col-xs-12 btn btn-default btn-lg text-center margin" data-ng-click="doctorsVisible = false;removeSelected('.gp')">Cancel</div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 times__popup popup clearfix" data-ng-show="timesVisible">
+                <div class="col-xs-12 bg-primary text-center padding margin">Select Time Slot for {{booking.doctor}}</div>
+                <div class="col-xs-12">
+                        <ul class="list-unstyled">
+                                <li class=" padding" data-ng-repeat="datetimes in doctor.available | orderBy : 'firstAvailable'">
+                                        <span class="date" data-ind="{{$index}}">{{datetimes.date}}</span>
+                                        <ul class="list-unstyled list-inline" data-ng-show="true">
+                                                <li class="list" data-ng-repeat="time in datetimes.time">
+                                                        <span class="time  margin" data-ng-click="setBookingData(doctor.id,datetimes.date,time)">{{time}}</span>
+                                                </li>
+                                        </ul>
+
+                                </li>
+                        </ul>
+                </div>
+                <div class="col-xs-12 btn btn-default btn-lg text-center margin" data-ng-click="timesVisible = false;">Cancel</div>
+        </div>
+</div>

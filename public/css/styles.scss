@@ -1,0 +1,294 @@
+//vars ====================================
+$main : #827096;
+//globals =================================
+.bg-white{
+        background-color : #fff;
+}
+.no-padding{
+        padding : 0;
+}
+.padding{
+        padding : 20px 0;
+}
+.padding-bottom{
+        padding-bottom : 20px;
+}
+.padding-lg{
+        padding : 20px;
+}
+.margin{
+        margin : 20px 0;
+}
+.margin-left{
+        margin-left: 15px;
+}
+.center{
+        margin : 0 auto;
+}
+.relative{
+        position : relative;
+}
+.flipH{
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+.cirlce{
+        border-radius: 50%;
+}
+.mainTheme{
+        background-color : $main;
+        color : #fff;
+        padding: 5px 10px;
+}
+.btn_mainTheme{
+        background-color : $main;
+        border-color : #725F7F;
+        color : #fff;
+        &:hover , &:active, &:focus{
+                background-color : #725F7F !important;
+                border-color : $main !important;
+        }
+}
+.fixed-height{
+        height: 300px;
+        overflow: hidden;
+        margin-bottom: 20px;
+}
+//main styles =================================
+body{
+     font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+     font-size: 15px;
+     text-transform: none;
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     min-height: 100%;
+     width: 100%;
+     background: #F4F4F4;
+     color: #888;
+     -webkit-font-smoothing: antialiased;
+     -webkit-text-size-adjust: 100%;
+     letter-spacing: 0.5px;
+        //header ===================================
+     header{
+          background: $main;
+          position: fixed;
+             height : 70px;
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding: 0;
+          z-index: 10000;
+          -webkit-transform: translateY(0%);
+          -moz-transform: translateY(0%);
+          transform: translateY(0%);
+          -webkit-transition: all 0.5s;
+          -moz-transition: all 0.5s;
+          transition: all 0.5s;
+          border-bottom: 2px solid #ccc;
+          // navigation ============================
+             nav{
+                     &.navbar.navbar-default{
+                             background : none;
+                             border : none;
+                             margin: 0;
+                             li{
+                                     color : #fff;
+                                     float: left;
+                                     a{
+                                             color : #fff;
+                                             padding-top: 20px;
+                                             &:hover , &:focus{
+                                                     color : #bbb;
+                                                     background-color : rgba(255,255,255,0);
+                                                     text-decoration : none;
+                                             }
+                                     }
+                                     &.active{
+                                             background-color : rgba(255,255,255,0);
+                                             border-bottom : 1px solid #fff;
+                                             a{
+                                                     color : #fff;
+                                                     background-color : rgba(255,255,255,0);
+                                                     text-decoration : none;
+                                                     &:hover{
+                                                             color : #bbb;
+                                                             background-color : rgba(255,255,255,0);
+                                                             text-decoration : none;
+                                                     }
+                                                     &:focus{
+                                                             color : #bbb;
+                                                             background-color : rgba(255,255,255,0);
+                                                             text-decoration : none;
+                                                     }
+                                             }
+                                             &:hover , &:focus{
+                                                     //border-bottom : 1px solid #bbb;
+                                             }
+                                     }
+                                     &:hover , &:focus{
+
+                                     }
+                             }
+                     }
+             }
+
+     }
+     section{
+          margin-top: 60px;
+             .home{
+                        .cta_home {
+                                position: absolute;
+                                top: 50px;
+                                left: 50px;
+                        }
+             }
+             .booking{
+                     margin-bottom : 5px;
+                     ul {
+                             li {
+                                     &.mainListItem{
+                                             .date{
+                                                     &.selected{
+                                                             color: #fff;
+                                                             background-color: #72CF8C;
+                                                             padding : 0 20px;
+                                                     }
+                                             }
+                                     }
+                                     &.selectedDoctor , &.selectedDateTime{
+                                             color: #fff;
+                                             background-color: #72CF8C;
+                                             border-color: #6CC59E;
+                                     }
+                                     .name{
+                                             font-size : 20px;
+                                     }
+                                     i{
+                                        &.green{
+                                                color: #72CF8C;
+                                        }
+                                             &.white{
+                                                     color: #fff;
+                                             }
+                                     }
+                                     .badge{
+                                             background: $main;
+                                     }
+                                     &.list {
+
+                                             span {
+                                                     &.btn {
+                                                             &.selectable {
+                                                                     border-radius: 4px;
+                                                                     &.selected {
+                                                                             color: #fff;
+                                                                             background-color: #72CF8C;
+                                                                             border-color: #6CC59E;
+                                                                     }
+                                                             }
+                                                     }
+                                             }
+                                     }
+                             }
+                     }
+             }
+
+          .h1 {
+               text-align: left;
+               padding: 0;
+                margin : 0;
+               position: relative;
+               h1 {
+                    font-size: 28px;
+
+               }
+          }
+          //=================== for the original layout with popup =========================
+        .overlay{
+             position : absolute;
+             top : 0;
+             left : 0;
+             z-index: 99999;
+             width : 100%;
+             height : 150%;
+             background : rgba(0,0,0,0.75);
+             .popup{
+                     float : none;
+                     background : #fff;
+                     margin : 20vh auto;
+                     .doctor{
+                             &:hover{
+                                     cursor : pointer;
+                                     background-color: #e6e6e6;
+                             }
+                     }
+                     .time{
+                             padding : 5px;
+                             &:hover{
+                                     cursor : pointer;
+                                     background-color: #e6e6e6;
+                             }
+                     }
+
+
+             }
+        }//================= END for the original layout with popup =========================
+
+
+
+     }
+
+     footer{
+                .nav.footer-nav{
+                        li{
+                               padding : 5px;
+                                margin : 0;
+                                font-size : 14px;
+                                a{
+                                        margin : 0;
+                                        padding : 0;
+                                        color : #888;
+                                        &:hover{
+                                                background-color : #F4F4F4;
+                                        }
+                                }
+                        }
+                }
+             .hr{
+                     margin : 10px 0;
+                     padding : 0;
+                     float : none;
+                     background-color : #888;
+                     height : 1px;
+             }
+     }
+
+}
+@media (max-width: 768px){
+        footer {
+                .nav.navbar-nav.footer-nav {
+                        margin: 0 !important;
+                        li{
+                                float: left;
+                        }
+                }
+        }
+}
+@media (max-width: 640px){
+     body{
+          header{
+
+          }
+          section{
+
+          }
+          footer{
+
+          }
+     }
+}
