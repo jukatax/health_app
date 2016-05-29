@@ -1,5 +1,5 @@
-Babylon Health
-=============
+Health app - test and install
+=============================
 
 ## Getting started
 
