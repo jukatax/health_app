@@ -11,7 +11,7 @@ describe('Unit test controller and routes: ', function () {
                                 inject(function($controller , $rootScope , $injector , $httpBackend){
                                         scope = $rootScope.$new();
                                         bc = $controller('BookingController' , { $scope : scope});
-                                        $httpBackend.expectGET('../data/data.json').respond(200 , 'main data get');
+                                        $httpBackend.expectGET('data/data.json').respond(200 , 'main data get');
                                         $httpBackend.expectGET('views/main.html').respond(200 , 'main html');
                                         getData = $injector.get('getData');
                                         //set some dummy data to test main object

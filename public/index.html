@@ -20,20 +20,19 @@
 </head>
 <body data-ng-app="gp" data-ng-controller="MainController">
 
-    <header class="">
+    <header class="" menu-clicks>
+        <div class="mobileToggle"><a><i class="fa fa-bars fa-3x"></i></a></div>
         <div class="container no-padding">
-            <div class="headerMenu col-md-12 no-padding"><!--
-                <span class="pull-left ng-cloak">{{date | date:'fullDate'}}</span>-->
-
-                    <nav  class="navbar  navbar-default">
+            <div class="headerMenu col-md-12 no-padding">
+                <nav  class="navbar  navbar-default">
                         <div class="container-fluid no-padding">
                             <ul class="nav navbar-nav">
                                 <li ><a  href="#/">
                                         <i class="fa fa-heart-o fa-2x"></i>
                                 </a></li>
-                                <li data-ng-class="{active : page.home}"><a  href="#/">Home</a></li>
-                                <li data-ng-class="{active : page.booking}"><a  class="nav" href="#/booking">Book a consultation</a></li>
-                                <li data-ng-class="{active : page.booking2}"><a  class="nav" href="#/booking2" data-ng-show="page.booking||page.booking2">Booking_v2</a></li>
+                                <li class=" menuShow" data-ng-class="{active : page.home}"><a  href="#/">Home</a></li>
+                                <li class=" menuShow" data-ng-class="{active : page.booking}"><a  class="nav" href="#/booking">Book a consultation</a></li>
+                                <li class=" menuShow" data-ng-class="{active : page.booking2}"><a  class="nav" href="#/booking2" data-ng-show="page.booking||page.booking2">Booking_v2</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -74,7 +73,7 @@
             </div>
             <div class="col-xs-12 no-padding">
                 <ul class="nav navbar-nav footer-nav">
-                    <li >Babylon &copy; 2016 All rights reserved</li>
+                    <li >My company &copy; 2016 All rights reserved</li>
                     <li>
                         <a  class="nav" href="#">Terms of use |</a>
                     </li>
@@ -86,8 +85,8 @@
                     </li>
 
                 </ul>
-                <a class="pull-right" href="https://play.google.com/store/apps/details?id=com.babylon" ><img width="100" src="http://static1.squarespace.com/static/547deff4e4b0350ed130cc8f/5733610840261d70e70840f9/5733610940261d70e70840fb/1462985014815/english_get.png?format=300w" /></a>
-                <a class="pull-right" href="https://itunes.apple.com/gb/app/babylon-health/id858558101?mt=8"><img width="100" src="http://static1.squarespace.com/static/547deff4e4b0350ed130cc8f/5733610840261d70e70840f9/57336108f699bbef1cceeea4/1462985002045/Download_on_the_App_Store_Badge_US-UK_187.png?format=300w" /></a>
+                <a class="pull-right" href="#" ><img width="100" src="http://static1.squarespace.com/static/547deff4e4b0350ed130cc8f/5733610840261d70e70840f9/5733610940261d70e70840fb/1462985014815/english_get.png?format=300w" /></a>
+                <a class="pull-right" href="#"><img width="100" src="http://static1.squarespace.com/static/547deff4e4b0350ed130cc8f/5733610840261d70e70840f9/57336108f699bbef1cceeea4/1462985002045/Download_on_the_App_Store_Badge_US-UK_187.png?format=300w" /></a>
 
             </div>
         </div>
