@@ -12,7 +12,8 @@
     "socket.io": "^1.4.5"
   },
   "scripts": {
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js",
+    "build":"node index.js"
   },
   "devDependencies": {
     "jasmine-core": "^2.4.1",

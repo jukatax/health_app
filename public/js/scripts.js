@@ -224,7 +224,9 @@ app.directive('popupOffset' ,['$document' , "$window" ,  function($document,$win
 //=======================================================================
 //============================ Socket.io ================================
 //=======================================================================
-var socket = io();
-socket.on('doRefresh',function(){
-    window.location.reload(true);
-});
+if(typeof io ==='function'){
+    var socket = io();
+    socket.on('doRefresh',function(){
+        window.location.reload(true);
+    });
+}
